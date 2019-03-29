@@ -3,15 +3,94 @@
     Created on : 26/03/2019, 21:38:38
     Author     : marcos
 --%>
-%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@page import="br.com.fatecpg.cadastro.Clientes"%>
+<%@page import="br.com.fatecpg.cadastro.BD"%>
+<%@page import="br.com.fatecpg.cadastro.BDF"%>
+<%@page import="br.com.fatecpg.cadastro.Fornecedores"%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!-- Marcos -->
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lista</title>
+        <title>lista</title>
     </head>
     <body>
-        <h1>Lista</h1>
-    </body>
-</html>
+        
+        <h2>Clientes Cadastrados</h2>
+        <table border="1">
+            <tr><th>ID</th>
+            <th>Nome</th>
+            <th>Rg</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Endereço</th>
+            <th>Comandos</th>
+            </tr> 
+            <%
+                for (Clientes c: BD.getClientes()){
+                    int id = BD.getClientes().indexOf(c); 
+                
+                 
+             %>
+             <tr>
+                 <td><%=id%></td>
+                 <td><%=c.getNome()%></td>
+                 <td><%=c.getRg()%></td>
+                 <td><%=c.getEmail()%></td>
+                 <td><%=c.getTelefone()%></td>
+                 <td><%=c.getEndereco()%></td>
+                 <td>
+                     <a href="alterar.jsp?id=<%=id%>">Alterar</a>
+                     <a href="excluir.jsp?id=<%=id%>">Excluir</a>   
+                      </td>
+             </tr>
+            
+            
+            <%}%>
+        </table>
+        <a href="adicionar.jsp"><button>Adicionar Cliente</button></a>
+        
+        
+        
+        
+        
+           <h2>Fornecedores Cadastrados</h2>
+            <table border="1">
+            <tr><th>ID</th>
+            <th>Nome</th>
+            <th>Razão Social</th>
+            <th>Cnpj</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Endereço</th>
+            <th>Comandos</th>
+            </tr> 
+         
+            <%
+                for (Fornecedores c: BDF.getFornecedores()){
+                    int id = BDF.getFornecedores().indexOf(c); 
+                
+                 
+             %>
+             <tr>
+                 <td><%=id%></td>
+                 <td><%=c.getNome()%></td>
+                 <td><%=c.getRazaosocial()%></td>
+                 <td><%=c.getCnpj()%></td>
+                 <td><%=c.getEmail()%></td>
+                 <td><%=c.getTelefone()%></td>
+                 <td><%=c.getEndereco()%></td>
+                 <td>
+                     <a href="alterar.jsp?id=<%=id%>">Alterar</a>
+                     <a href="excluir.jsp?id=<%=id%>">Excluir</a>   
+                 </td>
+             </tr>
+            
+            
+            <%}%>
+        </table>
+        <a href="adicionar.jsp"><button>Adicionar Fornecedor</button></a>
+        
+        
