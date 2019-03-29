@@ -83,14 +83,14 @@
                  <td><%=c.getTelefone()%></td>
                  <td><%=c.getEndereco()%></td>
                  <td>
-                     <a href="alterar.jsp?id=<%=id%>">Alterar</a>
-                     <a href="excluir.jsp?id=<%=id%>">Excluir</a>   
+                     <a href="alterar_fornecedor.jsp?id=<%=id%>">Alterar</a>
+                     <a href="excluir_fornecedor.jsp?id=<%=id%>">Excluir</a>   
                  </td>
              </tr>
             
             
             <%}%>
         </table>
-        <a href="adicionar.jsp"><button>Adicionar Fornecedor</button></a>
+        <a href="adicionar_fornecedor.jsp"><button>Adicionar Fornecedor</button></a>
         
         
