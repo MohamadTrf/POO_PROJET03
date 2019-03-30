@@ -14,5 +14,6 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <a href="contatos/lista.jsp"> Fornecedores </a>
     </body>
 </html>
