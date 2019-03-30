@@ -17,7 +17,16 @@
                  BDF.getFornecedores().remove(id);
                  response.sendRedirect(request.getRequestURI()); 
              }
-           %>
+         %>
+         
+         <%
+             if(request.getParameter("excluirCliente")!=null){
+                 int id = Integer.parseInt(request.getParameter("id"));
+                 BD.getClientes().remove(id);
+                 response.sendRedirect(request.getRequestURI()); 
+             }
+         %>
+           
 
 <!DOCTYPE html>
 <html>
