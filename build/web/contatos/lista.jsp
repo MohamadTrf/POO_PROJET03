@@ -40,6 +40,20 @@
                  response.sendRedirect(request.getRequestURI());
             }  
          %>
+         <%
+            if(request.getParameter("alterarCliente")!=null){
+                int id = Integer.parseInt(request.getParameter("id"));
+                Clientes c = new Clientes();
+                c.setNome(request.getParameter("nomeCliente"));
+                c.setCpf(request.getParameter("cpf"));
+                c.setRg(request.getParameter("rg"));
+                c.setEmail(request.getParameter("emailCliente"));
+                c.setTelefone(request.getParameter("telefoneCliente"));
+                c.setEndereco(request.getParameter("enderecoCliente"));
+                BD.getClientes().set(id, c);
+                response.sendRedirect(request.getRequestURI());
+            }   
+         %>
            
 
 <!DOCTYPE html>
@@ -98,14 +112,13 @@
             <th>Endereço</th>
             <th>Comandos</th>
             </tr> 
-         
             <%
                 for (Fornecedores c: BDF.getFornecedores()){
                     int id = BDF.getFornecedores().indexOf(c); 
                 
                  
              %>
-             <tr>
+            <tr>
                  <td><%=id%></td>
                  <td><%=c.getNome()%></td>
                  <td><%=c.getRazaosocial()%></td>
