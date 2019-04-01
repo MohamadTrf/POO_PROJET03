@@ -26,6 +26,20 @@
                  response.sendRedirect(request.getRequestURI()); 
              }
          %>
+         <%
+            if(request.getParameter("alterarFornecedor") !=null){
+                 int id = Integer.parseInt(request.getParameter("id"));
+                 Fornecedores f = new Fornecedores();
+                 f.setNome(request.getParameter("nomeFornecedor"));
+                 f.setRazaosocial(request.getParameter("razaoSocial"));
+                 f.setCnpj(request.getParameter("cnpj"));
+                 f.setEmail(request.getParameter("emailFornecedor"));
+                 f.setTelefone(request.getParameter("telefoneFornecedor"));
+                 f.setEndereco(request.getParameter("enderecoFornecedor"));
+                 BDF.getFornecedores().set(id, f);
+                 response.sendRedirect(request.getRequestURI());
+            }  
+         %>
            
 
 <!DOCTYPE html>
